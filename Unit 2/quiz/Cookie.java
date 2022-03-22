@@ -1,3 +1,5 @@
+package classwork;
+
 /**
 * Name: Lucas Lu
 * Date: Mar.1
@@ -10,9 +12,24 @@
 
 public class Cookie{
   //attributes
+  /**
+   * The name of Cookie
+   */
   private String name;
+  
+  /**
+   * The weight of Cookie
+   */
   private double weight;
+  
+  /**
+   * The calories of Cookie
+   */
   private int calories;
+  
+  /**
+   * If the Cookie is packaged
+   */
   private boolean isPackaged;
   
   /**
@@ -96,9 +113,8 @@ public class Cookie{
   /**
   * This method judege how many calories the cookies give 
   * @param weight this is removed weight of cookies
-  * @return -1             int    return -1 means the cookie is not eaten because weight is not losing or greater than the weight of cookie
-  * @return -2             int    return -2 means this cookie is not eaten because it is still packaged
-  * @return caloriesGiven double  return calories eaten cookies give 
+  * @return -1 / -2 /  caloriesGiven  int  return -1 means the cookie is not eaten because weight is not losing or greater than the weight of cookie; 
+  *                                        return -2 means this cookie is not eaten because it is still packaged;  return calories eaten cookies give
   */
   public int eaten (double weight){
      if(weight == 0 || weight < 0 || weight > this.weight){  //if eaten weight is less than or equal 0 or it greater than the weight of existing cookies
