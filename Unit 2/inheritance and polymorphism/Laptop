@@ -9,18 +9,73 @@ package ICS4U1;
 public class Laptop {
 
 	/* Attributes */
+	/**
+	 * The brand of the device
+	 */
 	private String brand;
+	
+	/**
+	 * The colour of the device
+	 */
 	private String colour;
+	
+	/**
+	 * The price of the device
+	 */
 	private double price;
+	
+	/**
+	 * The size of the device
+	 */
 	private double size;
+	
+	/**
+	 * The weight of the device
+	 */
 	private double weight;
+	
+	/**
+	 * The storage of the device
+	 */
 	private int storage;
+	
+	/**
+	 * The battery of the device
+	 */
 	private int battery;
-	private int keyboardSize;
+	
+	/**
+	 * Whether the device is locked or not
+	 */
 	private boolean isLocked;
 	
+	/**
+	 * Whether the device is on or not
+	 */
+	private boolean isOn;
+	
+	/**
+	 * The keyboard size of the device
+	 */
+	private int keyboardSize;
+
+	
 	/* Constructor */
-	public Laptop (String brand, String colour, double price, double size, double weight, int storage, int battery, int keyboardSize, boolean isLocked) {
+	/**
+	 * Name: Laptop
+	 * Description: Constructor for the Laptop class
+	 * @param brand - String value for the brand of the laptop
+	 * @param colour - String value for the colour of the laptop
+	 * @param price - double value for the price of the laptop
+	 * @param size - double value for the size of the laptop
+	 * @param weight - double value for the weight of the laptop
+	 * @param storage - int value for the storage of the laptop
+	 * @param battery - int value for the battery value of the laptop in %
+	 * @param keyboardSize - int value for the keyboard size of the laptop in %
+	 * @param isLocked - boolean value for whether the laptop is locked or not
+	 * @param isOn - boolean value for whether the laptop is on or not
+	 */
+	public Laptop (String brand, String colour, double price, double size, double weight, int storage, int battery, int keyboardSize, boolean isLocked, boolean isOn) {
 		this.brand = brand;
 		this.colour = colour;
 		this.price = price;
@@ -30,105 +85,162 @@ public class Laptop {
 		this.battery = battery;
 		this.keyboardSize = keyboardSize;
 		this.isLocked = isLocked;
+		this.isOn = isOn;
 	}
 	
 	/* Accessors and Mutators */
 	/**
-	 * return the brand attributes
-	 * @return brand  String  the brand of device
+	 * Name: getBrand
+	 * Description: gets the brand of the laptop
+	 * @return - String value for the brand of the laptop
 	 */
 	public String getBrand() {
 		return brand;
 	}
-	
+
 	/**
-	 * return colour attributes
-	 * @return colour  String  the colour of device
+	 * Name: getColour
+	 * Description: gets the color of the laptop
+	 * @return - String value for the colour of the laptop
 	 */
 	public String getColour() {
 		return colour;
 	}
-	
+
 	/**
-	 * return price attributes
-	 * @return price  double  the price of device
+	 * Name: getPrice
+	 * Description: gets the price of the laptop
+	 * @return - double value for the price of the laptop
 	 */
 	public double getPrice() {
 		return price;
 	}
-	
+
 	/**
-	 * return size attributes
-	 * @return size  double  the size of device
+	 * Name: getSize
+	 * Description: gets the size of the laptop
+	 * @return - double value for the size of the laptop
 	 */
 	public double getSize() {
 		return size;
 	}
-	
+
 	/**
-	 * return weight attributes
-	 * @return weight  double  the weight of device
+	 * Name: getWeight
+	 * Description: gets the weight of the laptop
+	 * @return - double value for the weight of the laptop
 	 */
 	public double getWeight() {
 		return weight;
 	}
-	
+
 	/**
-	 * return storage attribute
-	 * @return storage  int  the storage of device
+	 * Name: getStorage
+	 * Description: gets the storage of the laptop
+	 * @return - int value for the storage of the laptop
 	 */
 	public int getStorage() {
 		return storage;
 	}
-	
+
 	/**
-	 * return the battery attributes
-	 * @return battery  int  the battery of device
+	 * Name: getBattery
+	 * Description: gets the battery of the laptop
+	 * @return - int value for the battery of the laptop
 	 */
 	public int getBattery() {
 		return battery;
 	}
+
+	/**
+	 * Name: getisLocked
+	 * Description: gets whether the laptop is locked or not
+	 * @return - boolean value for whether the laptop is locked or not
+	 */
+	public boolean getIsLocked() {
+		return isLocked;
+	}
+
+	/**
+	 * Name: getIsOn
+	 * Description: gets whether the laptop is on or not
+	 * @return - boolean value for whether the laptop is on or not
+	 */
+	public boolean getIsOn() {
+		return isOn;
+	}
 	
+	/**
+	 * Name: getKeyboardSize
+	 * Description: gets the keyboard size of the laptop
+	 * @return - int value for the keyboard size of the laptop
+	 */
 	public int getKeyboardSize() {
 		return keyboardSize;
 	}
 	
 	/**
-	 * return the isLocked attributes
-	 * @return isLocked  boolean  the lock status of device 
+	 * Name: setKeyboardSize
+	 * Description: sets the keyboard size of the laptop to a new size
+	 * @param newKeyboardSize - int value for the new keyboard size of the laptop
 	 */
-	public boolean getIsLocked() {
-		return isLocked;
-	}
-	
-	
 	public void setKeyboardSize(int newKeyboardSize) {
 		keyboardSize = newKeyboardSize;
 	}
 	
+	/**
+	 * Name: setIsOn
+	 * Description: This mutator method is used to set the device on and off
+	 * @param newIsOn - boolean value that represents the new status of the device
+	 */
+	public void setIsOn(boolean newIsOn) {
+		isOn = newIsOn;
+	}
+	
+	/**
+	 * Name: setBattery
+	 * Description: This mutator method is used to change the battery value while keeping the value between 0-100
+	 * @param newBattery - an int value for the new battery value after using or charging
+	 */
+	public void setBattery(int newBattery) {
+		battery = Math.max(0, Math.min(100, newBattery));	//keep the battery value within the range 0-100
+		if (battery == 0) {
+			setIsOn(false);		//turn device off if battery is at 0%
+		}
+	}	
+	
+	
 	/* Other methods */
 	/**
-	 * unlock the device
+	 * Name: unlock
+	 * Description: unlocks the device
 	 */
 	public void unlock() {
 		isLocked = false;
 	}
-	
+
 	/**
-	 * lock the device
+	 * Name: lock
+	 * Description: locks the device
 	 */
 	public void lock() {
 		isLocked = true;
 	}
-	
+
 	/**
-	 * charge the device and each minutes boost 1%
-	 * @param time int the time of calling
+	 * Name: charge
+	 * Description: charges the device at a rate of 1% per minute
+	 * @param time - int value that represents the time the device gets charged in minutes
 	 */
-	public void charge(int time) {	//time in min
-		battery = Math.min(100, battery + time*1);
+	public void charge(int time) { // time in min
+		battery = Math.min(100, battery + time * 1);
 	}
 	
+	/**
+	 * Name: game
+	 * Description: games, uses up battery when gaming at a rate of 2% per minute
+	 * @param time - an int value representing the time of the call in minutes
+	 */
 	public void game(int time) {
 		if (isLocked) {
 			System.out.println("Unlock laptop first");
@@ -149,20 +261,63 @@ public class Laptop {
 	}
 	
 	/**
-	 * if the device has enough battery
-	 * @return yes/no if over 75, return yes, if lower 75, return no
+	 * Name: powerOn
+	 * Description: turns the device on
 	 */
-	public String hasEnoughBattery() {
-		return battery >= 75 ? "Yes" : "No";
+	public void powerOn() {
+		//if laptop is already on
+		if (getIsOn()) {
+			System.out.println("SYSTEM MESSAGE: Laptop is already on and ready to use!");
+			return;
+		}
+
+		//if there is no battery, does not work
+		if (getBattery() == 0) {
+			System.out.println("SYSTEM MESSAGE: Charge laptop first!");
+			return;
+		}
+
+		//set laptop as on
+		setIsOn(true);
+		System.out.println("SYSTEM MESSAGE: Laptop has been turned on");
+	}
+
+	/**
+	 * Name: shutdown
+	 * Description: shuts the device down
+	 */
+	public void shutdown() {
+		//if laptop is already off
+		if (!getIsOn()) {
+			System.out.println("SYSTEM MESSAGE: Laptop is already off");
+			return;
+		}
+		
+		//shut the laptop down
+		setIsOn(false);
+		System.out.println("SYSTEM MESSAGE: Laptop has been turned off");
 	}
 	
 	/**
-	 * return attributes values
-	 * @return String attributes values
+	 * Name: hasEnoughBattery
+	 * Description: tells the user whether the laptop has enough battery or not
+	 * @return - a String value indicating whether there is enough battery or not
+	 */
+	public String hasEnoughBattery() {
+		//if >= 75, yes; if < 75, no
+		return getBattery() >= 75 ? "SYSTEM MESSAGE: There is enough battery" : "SYSTEM MESSAGE: There is not enough battery";
+	}
+
+	/**
+	 * Name: toString
+	 * Description: outputs the  attributes of the device and their status
+	 * @return - a string value for the  attributes of the device and their status
 	 */
 	public String toString() {
 		return "\nBrand: " + brand + "\nColour: " + colour + "\nPrice: " + price + "\nSize: " + size + "\nWeight "
 				+ weight + "\nStorage: " + storage + "\nBattery: " + battery + "%\nIs Locked: "
-				+ (isLocked ? "Yes" : "No") + "\nis On: " + "\nKeyboard Size: " + keyboardSize;
+				+ (isLocked ? "Yes" : "No") + "\nis On: " + (isOn ? "Yes" : "No") + "\nKeyboard Size: " + keyboardSize + "%";
 	}
+
 }
+
