@@ -7,8 +7,19 @@
 
 public class Human{
    //attributes
+   /**
+    * The name of human
+    */
    private String name;
+   
+   /**
+    * the weight of human
+    */
    private double weight;
+   
+   /**
+    * the energyLevel of human 0-100
+    */
    private int energyLevel;
    
    /**
