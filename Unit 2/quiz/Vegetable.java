@@ -5,14 +5,25 @@
 */
 
 public class Vegetable{
+   /**
+   * The name of Vegetable
+   */
    private String name;
+   
+   /**
+   * The weight of vegetable
+   */
    private double weight;
+   
+   /**
+   * The calories of vegetable
+   */
    private int calories;
    
    /**
    * defualt constructor, assign default values 
    */
-   Vegetable(){
+   public Vegetable(){
       this.name = "";
       this.weight = -1;
       this.calories = -1;
@@ -24,7 +35,7 @@ public class Vegetable{
    * @param weight    double  the weight of vegetable
    * @param calories  int     the calories of vegetable
    */
-   Vegetable(String name, double weight, int calories){
+   public Vegetable(String name, double weight, int calories){
       this.name = name;
       this.weight = weight;
       this.calories = calories;
