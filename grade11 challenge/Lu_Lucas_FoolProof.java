@@ -14,7 +14,7 @@ public class Lu_Lucas_FoolProof {
       String inputNum;
             
       do{
-         System.out.print("Enter the numerator: ");
+         System.out.print("\nEnter the numerator: ");
     	    inputNum = in.nextLine();
          
          //if the input is a number, run the below code
@@ -26,7 +26,7 @@ public class Lu_Lucas_FoolProof {
             
            //if divisor is zero, printf corresponding message
            if (inputDivisor == 0) {
-             System.out.printf("You can't divide %.2f by %.2f ",inputNumD, inputDivisor);
+             System.out.printf("You can't divide %.0f by %.0f \n",inputNumD, inputDivisor);
            } else {
              //calculate and store the result to the variable
              double result = inputNumD / inputDivisor;
