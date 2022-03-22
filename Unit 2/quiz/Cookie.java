@@ -1,5 +1,3 @@
-package classwork;
-
 /**
 * Name: Lucas Lu
 * Date: Mar.1
