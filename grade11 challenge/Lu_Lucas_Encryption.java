@@ -44,7 +44,7 @@ public class Lu_Lucas_Encryption{
     //print the encryption array
     System.out.print("The encryption is: ");
     for(String i:inputSplit){
-       System.out.print(i + "  ");
+       System.out.print(i + " ");
     }      
   }
 }
